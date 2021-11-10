@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dealers/static/css/main.ff834c4c.chunk.css",
-    "main.js": "/dealers/static/js/main.13e1f0ed.chunk.js",
-    "main.js.map": "/dealers/static/js/main.13e1f0ed.chunk.js.map",
+    "main.js": "/dealers/static/js/main.12f418c8.chunk.js",
+    "main.js.map": "/dealers/static/js/main.12f418c8.chunk.js.map",
     "runtime-main.js": "/dealers/static/js/runtime-main.a4fc99e9.js",
     "runtime-main.js.map": "/dealers/static/js/runtime-main.a4fc99e9.js.map",
     "static/js/2.ad5a5ff4.chunk.js": "/dealers/static/js/2.ad5a5ff4.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.a4fc99e9.js",
     "static/js/2.ad5a5ff4.chunk.js",
     "static/css/main.ff834c4c.chunk.css",
-    "static/js/main.13e1f0ed.chunk.js"
+    "static/js/main.12f418c8.chunk.js"
   ]
 }
