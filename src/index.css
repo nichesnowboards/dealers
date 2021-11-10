@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Bookman Old Style";
+  src: url("./fonts/woodmart-font.woff2") format("woff2"),
+       url("./fonts/woodmart-font.woff") format("woff"),
+     url("./fonts/woodmart-font.ttf") format("truetype");
+}
+
+:root {
+  --main-bg-color: rgba(145, 158, 126, 1);
+  --grid: 8px;
+  --main-btn-color: #919e7e;
+  --main-btn-text: #ffffff;
+  --main-link-text: #857550;
+}
+
+body {
+  margin: 0;
+  font-family: 'Bookman Old Style', serif, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+  word-spacing: 3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: 'Bookman Old Style', serif, Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  word-spacing: 3px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

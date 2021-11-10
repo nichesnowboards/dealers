@@ -1,0 +1,8 @@
+header {
+  background-color: var(--main-bg-color);
+  padding: calc(var(--grid) * 2.5) calc(var(--grid) * 4);
+}
+
+header img {
+  height: 75px;
+}
