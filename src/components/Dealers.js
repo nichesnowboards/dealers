@@ -36,7 +36,7 @@ export class Dealers extends Component {
       filteredDealers: [],
       isLoaded: false,
       search: '',
-      userLocation: {},
+      userLocation: null,
       userRadius: 500
     }
     this.searchDealers = this.searchDealers.bind(this);
@@ -73,7 +73,7 @@ export class Dealers extends Component {
   map() {}
 
    searchDealers(event) {
-     if (event.target) {
+     if (event && event.target) {
        const form = new FormData(event.target);
        this.setState({search: form.get('search')});
        const geocoder = new this.geocoder();
@@ -84,7 +84,13 @@ export class Dealers extends Component {
        event.preventDefault();
      } else {
        this.setState({search: ''});
-       this.filterDealers(this.userLocation);
+       if (!this.state.userLocation) {
+         this.getUserLocation(_ => {
+           this.filterDealers();
+         });
+       } else {
+         this.filterDealers(this.userLocation);
+       }
      }
    }
 
@@ -99,6 +105,9 @@ export class Dealers extends Component {
         });
         this.setState({ isLoaded: true })
         callback()
+      }, (error) => {
+        console.log(error)
+        this.setState({ isLoaded: true })
       });
     } else {
       /* geolocation IS NOT available */
@@ -108,7 +117,6 @@ export class Dealers extends Component {
 
    filterDealers(query) {
      const { dealers, userRadius, search } = this.state;
-     console.log('filterDealers:search string', search)
      const filteredDealers = dealers
       .map(this.dealerLocations.bind(this, query))
       .sort(this.dealerDistance)

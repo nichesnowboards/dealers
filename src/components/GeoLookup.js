@@ -23,11 +23,9 @@ export class GeoLookup extends Component {
   }
   handleSubmit(event) {
     this.showSearchForm();
-    console.log('submit')
     this.getDistance(event);
   }
   useMyLocation() {
-    console.log('use my location')
     this.getDistance(this.state.userLocation);
     this.setState({ search: '' });
     this.showSearchForm();
