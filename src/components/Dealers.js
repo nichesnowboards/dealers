@@ -116,7 +116,7 @@ export class Dealers extends Component {
   }
 
    filterDealers(query) {
-     const { dealers, userRadius, search } = this.state;
+     const { dealers, userRadius } = this.state;
      const filteredDealers = dealers
       .map(this.dealerLocations.bind(this, query))
       .sort(this.dealerDistance)
