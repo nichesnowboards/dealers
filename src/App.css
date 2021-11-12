@@ -33,7 +33,6 @@ h1 {
 
 }
 .inline-link {
-  padding: var(--grid);
   color: var(--main-link-text);
   text-transform: uppercase;
   letter-spacing: .3px;
@@ -41,6 +40,7 @@ h1 {
   background: transparent;
   font-size: inherit;
   line-height: inherit;
+  justify-content: inherit;
 }
 .link {
   flex: 1 1 100%;

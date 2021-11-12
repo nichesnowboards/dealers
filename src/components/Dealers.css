@@ -33,6 +33,14 @@
 .dealer h2,
 .dealer p {
   margin: 0 0 var(--grid);
+  display: flex;
+  align-items: center;
+}
+.dealer .icon {
+  display: flex;
+  margin-right: var(--grid);
+  width: 14px;
+  justify-content: center;
 }
 .dealers .search-results .content {
   display: flex;

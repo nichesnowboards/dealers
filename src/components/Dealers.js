@@ -4,6 +4,8 @@ import './Dealers.css'
 import GeoLookup from './GeoLookup'
 import Map from './Map'
 import {appendScript} from '../utils.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapPin, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const MAPS_API_KEY = 'AIzaSyBqv3DuV0eHjDCdOS48ltt62fYjfv55_YQ'
 
@@ -12,16 +14,16 @@ function DealerInfo({dealer}) {
     return (
       <div>
         <h2>{dealer.title}</h2>
-        <p>{dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
-        <p>{dealer.phone}</p>
+        <p><span class="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
+        <p><span class="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
       </div>
     )
   }
   return (
     <div>
       <h2>{dealer.title}</h2>
-      <p>{dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
-      <p>{dealer.phone}</p>
+      <p><span class="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
+      <p><span class="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
       <div className="actions">
         <a href={dealer.website} target="_blank" rel="noreferrer" className="button">Website</a>
       </div>
