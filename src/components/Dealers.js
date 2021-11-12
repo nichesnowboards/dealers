@@ -9,24 +9,32 @@ import { faMapPin, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const MAPS_API_KEY = 'AIzaSyBqv3DuV0eHjDCdOS48ltt62fYjfv55_YQ'
 
-function DealerInfo({dealer}) {
-  if (!dealer.website) {
-    return (
-      <div>
-        <h2>{dealer.title}</h2>
-        <p><span class="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
-        <p><span class="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
-      </div>
-    )
+function DealerPhone({dealer}) {
+  if (!dealer.phone) {
+    return ''
   }
+  return (
+    <p><span className="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
+  )
+}
+function DealerWebsite({dealer}) {
+  if (!dealer.website) {
+    return ''
+  }
+  return (
+    <div className="actions">
+      <a href={dealer.website} target="_blank" rel="noreferrer" className="button">Website</a>
+    </div>
+  )
+}
+
+function DealerInfo({dealer}) {
   return (
     <div>
       <h2>{dealer.title}</h2>
-      <p><span class="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
-      <p><span class="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
-      <div className="actions">
-        <a href={dealer.website} target="_blank" rel="noreferrer" className="button">Website</a>
-      </div>
+      <p><span className="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
+      <DealerPhone dealer={dealer} />
+      <DealerWebsite dealer={dealer} />
     </div>
   )
 }
