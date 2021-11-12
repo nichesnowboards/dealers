@@ -22,7 +22,7 @@ h1 {
   font-size: 36px;
   font-weight: 400;
 }
-.link, .button {
+.link, .button, .inline-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +31,16 @@ h1 {
   text-transform: uppercase;
   font-weight: 800;
 
+}
+.inline-link {
+  padding: var(--grid);
+  color: var(--main-link-text);
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  border: none;
+  background: transparent;
+  font-size: inherit;
+  line-height: inherit;
 }
 .link {
   flex: 1 1 100%;
@@ -50,4 +60,20 @@ h1 {
   padding: calc(1.25 * var(--grid)) calc(1.75 * var(--grid));
   border: none;
   font-size: 12px;
+}
+.select-list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  z-index: 5;
+  box-shadow: var(--box-shadow);
+  margin: var(--grid);
+  color: var(--body-text);
+}
+.select-list span {
+  padding: 0 var(--grid);
+  cursor: pointer;
+}
+.select-list span:hover {
+  background-color: var(--alt-bg-color);
 }

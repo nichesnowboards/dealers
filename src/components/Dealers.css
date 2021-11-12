@@ -34,7 +34,7 @@
 .dealer p {
   margin: 0 0 var(--grid);
 }
-.dealers .search-results p {
+.dealers .search-results .content {
   display: flex;
   flex: 1 0 auto;
   margin: 0;

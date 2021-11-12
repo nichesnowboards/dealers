@@ -28,6 +28,7 @@ function DealerInfo({dealer}) {
     </div>
   )
 }
+
 export class Dealers extends Component {
   constructor(props) {
     super(props);
@@ -37,26 +38,26 @@ export class Dealers extends Component {
       isLoaded: false,
       search: '',
       userLocation: null,
-      userRadius: 500
+      userRadius: 50
     }
     this.searchDealers = this.searchDealers.bind(this);
     this.initMap = this.initMap.bind(this);
     this.filterDealers = this.filterDealers.bind(this);
     this.dealerLocations = this.dealerLocations.bind(this);
+    this.updateRadius = this.updateRadius.bind(this);
   }
 
   componentDidMount() {
     const restPrefix = 'https://nichesnowboards.com/wp-json'
     // const restPrefix = 'http://localhost:8000/?rest_route='
+
+    this.getUserLocation();
     axios.get(`${restPrefix}/dealerlocator/v1/dealers/`)
       .then(res => {
         this.setState({
           dealers: res.data,
           isLoaded: false
         })
-        this.getUserLocation(_ => {
-          this.filterDealers();
-        });
       })
       .catch(err => console.log(err))
       window.initMap = this.initMap;
@@ -84,27 +85,23 @@ export class Dealers extends Component {
        event.preventDefault();
      } else {
        this.setState({search: ''});
-       if (!this.state.userLocation) {
-         this.getUserLocation(_ => {
-           this.filterDealers();
-         });
-       } else {
-         this.filterDealers(this.userLocation);
-       }
      }
    }
 
-  getUserLocation(callback) {
+   updateRadius(userRadius) {
+     this.setState({ userRadius }, this.filterDealers)
+   }
+
+  getUserLocation() {
     if('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
           userLocation: {
             lat: position.coords.latitude,
             lng: position.coords.longitude
-          }
-        });
-        this.setState({ isLoaded: true })
-        callback()
+          },
+          isLoaded: true
+        }, this.filterDealers);
       }, (error) => {
         console.log(error)
         this.setState({ isLoaded: true })
@@ -117,21 +114,22 @@ export class Dealers extends Component {
 
    filterDealers(query) {
      const { dealers, userRadius } = this.state;
-     const filteredDealers = dealers
-      .map(this.dealerLocations.bind(this, query))
-      .sort(this.dealerDistance)
-      .filter(({ distance }) => {
-         return distance < (userRadius * 1.6)
+     if (dealers.length) {
+       this.setState({
+         filteredDealers: dealers
+          .map(this.dealerLocations)
+          .sort(this.dealerDistance)
+          .filter(({ distance }) => {
+             return distance < (userRadius * 1.6)
+           })
        });
-     this.setState({
-       filteredDealers
-     });
+     }
    }
 
-   dealerLocations(query, d) {
-     const { userLocation } = this.state;
+   dealerLocations(d) {
+     const { userLocation, search } = this.state;
      let location = userLocation;
-     if (query) {
+     if (search) {
        location = ''
      }
      return {
@@ -181,7 +179,7 @@ export class Dealers extends Component {
               <Map map={this.map} />
               <div className="list">
                 <h1>Find A Dealer</h1>
-                <GeoLookup userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} />
+                <GeoLookup userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
                {filteredDealers.map(dealer =>
                  <div key={dealer.id} className="dealer">
                   <DealerInfo dealer={dealer} />
