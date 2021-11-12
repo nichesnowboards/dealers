@@ -57,8 +57,7 @@ export class Dealers extends Component {
     axios.get(`${restPrefix}/dealerlocator/v1/dealers/`)
       .then(res => {
         this.setState({
-          dealers: res.data,
-          isLoaded: false
+          dealers: res.data
         })
       })
       .catch(err => console.log(err))
@@ -123,7 +122,8 @@ export class Dealers extends Component {
           .sort(this.dealerDistance)
           .filter(({ distance }) => {
              return distance < (userRadius * 1.6)
-           })
+           }),
+        isLoaded: true
        });
      }
    }
