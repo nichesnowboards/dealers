@@ -28,9 +28,9 @@ export class Header extends Component {
         <div className="topbar">
           <span>{this.state.description}</span>
           <div className="social">
-            <a className="icon" href="https://www.facebook.com/nichesnowboards" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
-            <a className="icon" href="https://www.instagram.com/nichesnowboards/" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
-            <a className="icon" href="https://vimeo.com/nichesnowboards" target="_blank"><FontAwesomeIcon icon={faVimeoV} /></a>
+            <a className="icon" href="https://www.facebook.com/nichesnowboards" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a className="icon" href="https://www.instagram.com/nichesnowboards/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a className="icon" href="https://vimeo.com/nichesnowboards" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faVimeoV} /></a>
           </div>
         </div>
         <div className="logo">
