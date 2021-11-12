@@ -1,8 +1,49 @@
 header {
+  display: flex;
+  flex-direction: column;
+}
+
+header .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--main-bg-color);
-  padding: calc(var(--grid) * 2.5) calc(var(--grid) * 4);
+  padding: 0 calc(var(--grid) * 4);
+  height: 42px;
+  box-sizing: border-box;
+  color: var(--main-btn-text);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 header img {
   height: 75px;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(2 * var(--grid)) 0;
+}
+header .social {
+  display: flex;
+}
+header .icon {
+  display: flex;
+  flex: 0 0 auto;
+  padding: calc(var(--grid) * 0.75);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-btn-text);
+  height: 30px;
+  width: 30px;
+}
+header .icon:hover {
+  color: rgba(255,255,255,.6);
+}
+header .icon svg {
+  height: 42px;
+  width: 42px;
 }
