@@ -14,6 +14,13 @@ export class Header extends Component {
   componentDidMount () {
     const restPrefix = 'https://nichesnowboards.com/wp-json'
     // const restPrefix = 'http://localhost:8000/?rest_route='
+    axios.get(`${restPrefix}/nichesnowboards/v1/menu/`)
+      .then(res => {
+        this.setState({
+          menu: res.data.reduce(this.buildMenu, [])
+        })
+      })
+      .catch(err => console.log(err))
     axios.get(`${restPrefix}/`)
         .then(res => this.setState({
             name: res.data.name,
@@ -21,6 +28,24 @@ export class Header extends Component {
             isLoaded: true
         }))
         .catch(err => console.log(err))
+  }
+  buildMenu(menu, item) {
+    if (item.menu_item_parent == "0") {
+      menu.push({
+        id: item.ID,
+        title: item.title,
+        url: item.url,
+        children: []
+      })
+    } else {
+      const parent = menu.find(i => i.id == Number(item.menu_item_parent))
+      if (parent) parent.children.push({
+        id: item.ID,
+        title: item.title,
+        url: item.url
+      })
+    }
+    return menu
   }
   render() {
     return (

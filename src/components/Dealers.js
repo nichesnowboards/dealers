@@ -62,7 +62,7 @@ export class Dealers extends Component {
     // const restPrefix = 'http://localhost:8000/?rest_route='
 
     this.getUserLocation();
-    axios.get(`${restPrefix}/dealerlocator/v1/dealers/`)
+    axios.get(`${restPrefix}/nichesnowboards/v1/dealers/`)
       .then(res => {
         this.setState({
           dealers: res.data
