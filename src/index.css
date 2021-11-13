@@ -17,6 +17,7 @@
   --body-text: #777;
   --border: 1px solid rgba(129,129,129,.2);
   --menu-link-text: #2d2a2a;
+  --menu-toggle-color: #333;
 }
 
 body {
