@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/dealers/static/css/main.985811eb.chunk.css",
-    "main.js": "/dealers/static/js/main.ad25e0df.chunk.js",
-    "main.js.map": "/dealers/static/js/main.ad25e0df.chunk.js.map",
+    "main.css": "/dealers/static/css/main.7001a0bf.chunk.css",
+    "main.js": "/dealers/static/js/main.d88d41f9.chunk.js",
+    "main.js.map": "/dealers/static/js/main.d88d41f9.chunk.js.map",
     "runtime-main.js": "/dealers/static/js/runtime-main.e31a7b29.js",
     "runtime-main.js.map": "/dealers/static/js/runtime-main.e31a7b29.js.map",
-    "static/js/2.67ab85fe.chunk.js": "/dealers/static/js/2.67ab85fe.chunk.js",
-    "static/js/2.67ab85fe.chunk.js.map": "/dealers/static/js/2.67ab85fe.chunk.js.map",
+    "static/js/2.19051a7b.chunk.js": "/dealers/static/js/2.19051a7b.chunk.js",
+    "static/js/2.19051a7b.chunk.js.map": "/dealers/static/js/2.19051a7b.chunk.js.map",
     "static/js/3.8d28f3a8.chunk.js": "/dealers/static/js/3.8d28f3a8.chunk.js",
     "static/js/3.8d28f3a8.chunk.js.map": "/dealers/static/js/3.8d28f3a8.chunk.js.map",
     "index.html": "/dealers/index.html",
-    "static/css/main.985811eb.chunk.css.map": "/dealers/static/css/main.985811eb.chunk.css.map",
-    "static/js/2.67ab85fe.chunk.js.LICENSE.txt": "/dealers/static/js/2.67ab85fe.chunk.js.LICENSE.txt",
+    "static/css/main.7001a0bf.chunk.css.map": "/dealers/static/css/main.7001a0bf.chunk.css.map",
+    "static/js/2.19051a7b.chunk.js.LICENSE.txt": "/dealers/static/js/2.19051a7b.chunk.js.LICENSE.txt",
     "static/media/logo.9e90c648.png": "/dealers/static/media/logo.9e90c648.png",
     "static/media/index.css": "/dealers/static/media/woodmart-font.de7a5933.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.e31a7b29.js",
-    "static/js/2.67ab85fe.chunk.js",
-    "static/css/main.985811eb.chunk.css",
-    "static/js/main.ad25e0df.chunk.js"
+    "static/js/2.19051a7b.chunk.js",
+    "static/css/main.7001a0bf.chunk.css",
+    "static/js/main.d88d41f9.chunk.js"
   ]
 }
