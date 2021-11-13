@@ -47,3 +47,79 @@ header .icon svg {
   height: 42px;
   width: 42px;
 }
+header .menubar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .menu-toggle {
+  appearance: none;
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 30px;
+  line-height: 30px;
+
+  position: absolute;
+  left: calc(3 * var(--grid));
+}
+header .menu-overlay {
+  z-index: 9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+}
+header nav {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background-color: var(--secondary-bg-color);
+}
+
+header nav div {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+
+  font-weight: 800;
+}
+header nav a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 calc(2.5 * var(--grid));
+  height: 50px;
+  border-bottom: var(--border);
+  color: var(--menu-link-text);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+header nav .sub-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+header nav .sub-menu a {
+  color: var(--body-text);
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 600;
+}

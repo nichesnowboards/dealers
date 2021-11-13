@@ -4,12 +4,55 @@ import logo from '../logo.png';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faVimeoV, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+function MenuOverlay({ showMenu, toggleMenu }) {
+  if (showMenu) {
+    return (
+      <div className="menu-overlay" onClick={toggleMenu}></div>
+    )
+  }
+  return ''
+}
+
+function SubMenu({ menu }) {
+  if (menu && menu.length) {
+    return (
+      <div className="sub-menu">
+        {menu.map(({title,url,id}) =>
+        <div key={id}>
+          <a href={url}>{title}</a>
+        </div>
+        )}
+      </div>
+    )
+  }
+  return ''
+}
+
+function Menu({ showMenu, menu }) {
+  if (showMenu) {
+    return (
+      <nav>
+        {menu.map(({title,url,id,children}) =>
+          <div key={id}>
+            <a href={url}>{title}</a>
+            <SubMenu menu={children} />
+          </div>
+        )}
+      </nav>
+    )
+  }
+  return ''
+}
 
 export class Header extends Component {
   state = {
     name: '',
     description: '',
-    isLoaded: false
+    isLoaded: false,
+    showMenu: false,
+    menu: null,
   }
   componentDidMount () {
     const restPrefix = 'https://nichesnowboards.com/wp-json'
@@ -28,9 +71,10 @@ export class Header extends Component {
             isLoaded: true
         }))
         .catch(err => console.log(err))
+    this.toggleMenu = this.toggleMenu.bind(this)
   }
   buildMenu(menu, item) {
-    if (item.menu_item_parent == "0") {
+    if (item.menu_item_parent === "0") {
       menu.push({
         id: item.ID,
         title: item.title,
@@ -38,7 +82,7 @@ export class Header extends Component {
         children: []
       })
     } else {
-      const parent = menu.find(i => i.id == Number(item.menu_item_parent))
+      const parent = menu.find(i => i.id === Number(item.menu_item_parent))
       if (parent) parent.children.push({
         id: item.ID,
         title: item.title,
@@ -46,6 +90,10 @@ export class Header extends Component {
       })
     }
     return menu
+  }
+  toggleMenu() {
+    console.log(this.state.showMenu)
+    this.setState({ showMenu: !this.state.showMenu })
   }
   render() {
     return (
@@ -58,9 +106,16 @@ export class Header extends Component {
             <a className="icon" href="https://vimeo.com/nichesnowboards" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faVimeoV} /></a>
           </div>
         </div>
-        <div className="logo">
-          <img src={logo} alt="Logo" />
+        <div className="menubar">
+          <button className="menu-toggle" onClick={this.toggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+          <div className="logo">
+            <img src={logo} alt="Logo" />
+          </div>
         </div>
+        <Menu showMenu={this.state.showMenu} menu={this.state.menu} />
+        <MenuOverlay showMenu={this.state.showMenu} toggleMenu={this.toggleMenu} />
       </header>
     )
   }

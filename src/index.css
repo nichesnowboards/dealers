@@ -8,12 +8,15 @@
 :root {
   --grid: 8px;
   --main-bg-color: rgba(145, 158, 126, 1);
+  --secondary-bg-color: #fff;
   --main-btn-color: #919e7e;
   --main-btn-text: #ffffff;
   --main-link-text: #857550;
   --alt-bg-color: #F9F9F9;
   --box-shadow: 0 0 3px rgb(0 0 0 / 15%);
   --body-text: #777;
+  --border: 1px solid rgba(129,129,129,.2);
+  --menu-link-text: #2d2a2a;
 }
 
 body {
