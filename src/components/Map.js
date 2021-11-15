@@ -14,8 +14,14 @@ export class Map extends Component {
       zoom: 8,
     });
   }
-  componentDidUpdate() {
-    this.map.setCenter(this.state.location);
+  componentDidUpdate(prevProps) {
+    if (this.props.location.lat !== prevProps.location.lat ||
+        this.props.location.lng !== prevProps.location.lng) {
+      this.setState({ location: this.props.location }, this.updateCenter)
+    }
+  }
+  updateCenter() {
+    this.map.setCenter(this.state.location)
   }
   render() {
     return (
