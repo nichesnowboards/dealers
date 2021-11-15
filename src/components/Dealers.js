@@ -7,7 +7,7 @@ import {appendScript} from '../utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faPhone } from '@fortawesome/free-solid-svg-icons'
 
-const MAPS_API_KEY = 'AIzaSyBqv3DuV0eHjDCdOS48ltt62fYjfv55_YQ'
+const MAPS_API_KEY = 'AIzaSyAItV-8HqS4WWMYd1txR8ppL06U_U2oZRU'
 
 function DealerPhone({dealer}) {
   if (!dealer.phone) {

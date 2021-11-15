@@ -13,6 +13,9 @@
   --main-btn-text: #ffffff;
   --main-link-text: #857550;
   --alt-bg-color: #F9F9F9;
+  --footer-bg-color: #272727;
+  --footer-text-color: rgba(255,255,255,.8);
+  --footer-link-color: rgba(255,255,255,.6);
   --box-shadow: 0 0 3px rgb(0 0 0 / 15%);
   --body-text: #777;
   --border: 1px solid rgba(129,129,129,.2);
