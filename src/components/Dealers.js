@@ -47,6 +47,7 @@ export class Dealers extends Component {
       filteredDealers: [],
       isLoaded: false,
       search: '',
+      location: null,
       userLocation: null,
       userRadius: 50
     }
@@ -85,12 +86,19 @@ export class Dealers extends Component {
    searchDealers(event) {
      if (event && event.target) {
        const form = new FormData(event.target);
-       this.setState({search: form.get('search')});
        const geocoder = new this.geocoder();
        geocoder.geocode({'address':form.get('search')}, (res) => {
-         console.log(res)
+         const geo = res.map(({ formatted_address, geometry }) => {
+           return {
+             search: formatted_address,
+             location: {
+               lat: geometry.location.lat(),
+               lng: geometry.location.lng()
+             }
+           }
+         })
+         this.setState(geo[0], this.filterDealers)
        })
-       this.filterDealers(form.get('search'));
        event.preventDefault();
      } else {
        this.setState({search: ''});
@@ -137,10 +145,9 @@ export class Dealers extends Component {
    }
 
    dealerLocations(d) {
-     const { userLocation, search } = this.state;
-     let location = userLocation;
-     if (search) {
-       location = ''
+     let { userLocation, location } = this.state;
+     if (!location) {
+       location = userLocation;
      }
      return {
        ...d,
@@ -182,14 +189,14 @@ export class Dealers extends Component {
    }
 
    render() {
-      const {userLocation, userRadius, filteredDealers, isLoaded} = this.state;
+      const {search, userLocation, userRadius, filteredDealers, isLoaded} = this.state;
       if (isLoaded) {
         return (
            <div className="dealers">
               <Map map={this.map} />
               <div className="list">
                 <h1>Find A Dealer</h1>
-                <GeoLookup userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
+                <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
                {filteredDealers.map(dealer =>
                  <div key={dealer.id} className="dealer">
                   <DealerInfo dealer={dealer} />

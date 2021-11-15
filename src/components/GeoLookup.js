@@ -42,7 +42,7 @@ export class GeoLookup extends Component {
       userLocation: props.userLocation,
       userRadius: props.userRadius,
       showForm: false,
-      search: ''
+      search: props.search
     }
     this.showSearchForm = this.showSearchForm.bind(this);
     this.setValue = this.setValue.bind(this);

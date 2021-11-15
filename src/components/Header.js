@@ -111,7 +111,7 @@ export class Header extends Component {
             <FontAwesomeIcon icon={faBars} />
           </button>
           <div className="logo">
-            <img src={logo} alt="Logo" />
+            <a href="https://nichesnowboards.com/"><img src={logo} alt="Logo" /></a>
           </div>
         </div>
         <Menu showMenu={this.state.showMenu} menu={this.state.menu} />
