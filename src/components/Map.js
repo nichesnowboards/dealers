@@ -4,12 +4,18 @@ export class Map extends Component {
   constructor(props) {
     super(props);
     this.map = props.map;
+    this.state = {
+      location: props.location || { lat: -34.397, lng: 150.644 }
+    }
   }
   componentDidMount() {
-    new this.map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
+    this.map = new this.map(document.getElementById("map"), {
+      center: this.state.location,
       zoom: 8,
     });
+  }
+  componentDidUpdate() {
+    this.map.setCenter(this.state.location);
   }
   render() {
     return (

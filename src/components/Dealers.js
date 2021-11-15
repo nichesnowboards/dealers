@@ -189,11 +189,11 @@ export class Dealers extends Component {
    }
 
    render() {
-      const {search, userLocation, userRadius, filteredDealers, isLoaded} = this.state;
+      const {search, userLocation, location, userRadius, filteredDealers, isLoaded} = this.state;
       if (isLoaded) {
         return (
            <div className="dealers">
-              <Map map={this.map} />
+              <Map map={this.map} location={location || userLocation} />
               <div className="list">
                 <h1>Find A Dealer</h1>
                 <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
