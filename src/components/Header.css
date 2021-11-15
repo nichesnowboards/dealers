@@ -19,12 +19,22 @@ header .topbar {
 
 header img {
   height: 75px;
+  padding: calc(2 * var(--grid)) 0;
+}
+@media only screen and (max-width: 600px) {
+  header img {
+    height: 50px;
+    padding: calc(0.625 * var(--grid)) 0;
+  }
 }
 header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(2 * var(--grid)) 0;
+  padding: 0;
+}
+header .logo a {
+  display: flex;
 }
 header .social {
   display: flex;
@@ -66,6 +76,11 @@ header .menu-toggle {
   position: absolute;
   left: calc(3 * var(--grid));
   color: var(--menu-toggle-color);
+}
+@media only screen and (max-width: 600px) {
+  header .menu-toggle {
+    font-size: 22px;
+  }
 }
 header .menu-overlay {
   z-index: 9;

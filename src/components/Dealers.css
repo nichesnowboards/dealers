@@ -90,5 +90,6 @@
   #map {
     order: 0;
     flex: 0 0 33%;
+    min-height: 70vw;
   }
 }
