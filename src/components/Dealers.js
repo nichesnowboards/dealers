@@ -75,8 +75,7 @@ export class Dealers extends Component {
   }
 
   initMap() {
-    this.geocoder = window.google.maps.Geocoder;
-    this.map = window.google.maps.Map;
+    this.google = window.google;
   }
 
   geocoder() {}
@@ -86,7 +85,7 @@ export class Dealers extends Component {
    searchDealers(event) {
      if (event && event.target) {
        const form = new FormData(event.target);
-       const geocoder = new this.geocoder();
+       const geocoder = new this.google.maps.Geocoder();
        geocoder.geocode({'address':form.get('search')}, (res) => {
          const geo = res.map(({ formatted_address, geometry }) => {
            return {
@@ -193,7 +192,7 @@ export class Dealers extends Component {
       if (isLoaded) {
         return (
            <div className="dealers">
-              <Map map={this.map} location={location || userLocation} />
+              <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} />
               <div className="list">
                 <h1>Find A Dealer</h1>
                 <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
