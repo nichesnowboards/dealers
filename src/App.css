@@ -69,6 +69,7 @@ h1 {
   box-shadow: var(--box-shadow);
   margin: var(--grid);
   color: var(--body-text);
+  background-color: var(--secondary-bg-color);
 }
 .select-list span {
   padding: 0 var(--grid);

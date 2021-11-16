@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 const ZOOM_RADIUS = {
+  '10': 15,
   '50': 9,
   '100': 8,
   '200': 7,
@@ -225,7 +226,6 @@ export class Map extends Component {
   showLocation() {
     const location = this.props.markers.find(m => Number(m.id) === Number(this.state.selected))
     this.updateCenter({ lat: Number(location.lat), lng: Number(location.lng) })
-    this.updateZoom(13)
   }
   createMarker({lat,lng}) {
     return new this.google.maps.Marker({

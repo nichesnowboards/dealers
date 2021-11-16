@@ -150,7 +150,8 @@ export class Dealers extends Component {
 
    selectDealer(id) {
      this.setState({
-       selectedDealer: id
+       selectedDealer: id,
+       userRadius: 10
      })
    }
 

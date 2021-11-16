@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
-const RADIUS_OPT = [50,100,200,500]
+const RADIUS_OPT = [10,50,100,2000]
 export class UserRadius extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +13,11 @@ export class UserRadius extends Component {
     this.showOptions = this.showOptions.bind(this)
     this.selectOption = this.selectOption.bind(this)
     this.updateRadius = props.updateRadius
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userRadius !== prevProps.userRadius) {
+      this.setState({ userRadius: this.props.userRadius })
+    }
   }
   showOptions() {
     this.setState({ showRadiusOpt:!this.state.showRadiusOpt })
@@ -54,6 +59,11 @@ export class GeoLookup extends Component {
     this.useMyLocation = this.useMyLocation.bind(this);
     this.getDistance = props.onUpdate;
     this.updateRadius = props.updateRadius;
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userRadius !== prevProps.userRadius) {
+      this.setState({ userRadius: this.props.userRadius })
+    }
   }
   showSearchForm() {
     this.setState({ showForm: !this.state.showForm })
