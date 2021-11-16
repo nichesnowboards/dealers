@@ -74,7 +74,7 @@ export class GeoLookup extends Component {
     this.getDistance(this.state.userLocation);
   }
   render() {
-    const { userLocation, userRadius, showForm, search } = this.state;
+    const { userRadius, showForm, search } = this.state;
     if(!showForm) {
       let location = 'my location'
       if (search) location = search;
