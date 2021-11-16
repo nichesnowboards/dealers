@@ -211,7 +211,7 @@ export class Dealers extends Component {
       if (isLoaded) {
         return (
            <div className="dealers">
-              <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} />
+              <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} />
               <div className="list">
                 <h1>Find A Dealer</h1>
                 <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
