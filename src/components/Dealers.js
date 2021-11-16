@@ -47,9 +47,9 @@ export class Dealers extends Component {
       filteredDealers: [],
       isLoaded: false,
       search: '',
-      location: null,
+      location: { lat: 41.850033, lng: -87.6500523 },
       userLocation: null,
-      userRadius: 50
+      userRadius: 1400
     }
     this.searchDealers = this.searchDealers.bind(this);
     this.initMap = this.initMap.bind(this);
@@ -62,12 +62,12 @@ export class Dealers extends Component {
     const restPrefix = 'https://nichesnowboards.com/wp-json'
     // const restPrefix = 'http://localhost:8000/?rest_route='
 
-    this.getUserLocation();
+    // this.getUserLocation();
     axios.get(`${restPrefix}/nichesnowboards/v1/dealers/`)
       .then(res => {
         this.setState({
-          dealers: res.data
-        })
+          dealers: res.data,
+        }, this.filterDealers)
       })
       .catch(err => console.log(err))
       window.initMap = this.initMap;

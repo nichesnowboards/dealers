@@ -3,7 +3,8 @@ const ZOOM_RADIUS = {
   '50': 9,
   '100': 8,
   '200': 7,
-  '500': 6
+  '500': 6,
+  '1400': 3,
 }
 export class Map extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export class Map extends Component {
     this.updateZoom = this.updateZoom.bind(this);
     this.updateCenter = this.updateCenter.bind(this);
     this.state = {
-      location: props.location || { lat: -34.397, lng: 150.644 },
+      location: props.location,
       markers: props.markers,
       radius: props.userRadius
     }
