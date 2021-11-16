@@ -64,8 +64,8 @@ export class Dealers extends Component {
   }
 
   componentDidMount() {
-    // const restPrefix = 'https://nichesnowboards.com/wp-json'
-    const restPrefix = 'http://localhost:8000/?rest_route='
+    const restPrefix = 'https://nichesnowboards.com/wp-json'
+    // const restPrefix = 'http://localhost:8000/?rest_route='
 
     // this.getUserLocation();
     axios.get(`${restPrefix}/nichesnowboards/v1/dealers/`)
