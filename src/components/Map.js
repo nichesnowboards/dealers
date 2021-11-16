@@ -224,7 +224,6 @@ export class Map extends Component {
   }
   showLocation() {
     const location = this.props.markers.find(m => Number(m.id) === Number(this.state.selected))
-    console.log(location)
     this.updateCenter({ lat: Number(location.lat), lng: Number(location.lng) })
     this.updateZoom(13)
   }
