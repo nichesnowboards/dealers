@@ -17,7 +17,7 @@ header {
 h1 {
   display: flex;
   justify-content: center;
-  margin: var(--grid) 0;
+  margin: 0;
   line-height: 46px;
   font-size: 36px;
   font-weight: 400;
@@ -76,4 +76,19 @@ h1 {
 }
 .select-list span:hover {
   background-color: var(--alt-bg-color);
+}
+.select-toggle {
+  display: flex;
+  align-items: center;
+  color: var(--main-link-text);
+  padding: 0 var(--grid);
+}
+.select-toggle svg {
+  display: flex;
+  padding-left: calc(0.5 * var(--grid));
+  position: relative;
+  top: 2px;
+}
+.select-toggle .inline-link {
+  padding: 0;
 }

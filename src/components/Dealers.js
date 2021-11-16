@@ -5,7 +5,7 @@ import GeoLookup from './GeoLookup'
 import Map from './Map'
 import {appendScript} from '../utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapPin, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faMapPin, faPhone, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 const MAPS_API_KEY = 'AIzaSyAItV-8HqS4WWMYd1txR8ppL06U_U2oZRU'
 
@@ -35,6 +35,9 @@ function DealerInfo({dealer}) {
       <p><span className="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
       <DealerPhone dealer={dealer} />
       <DealerWebsite dealer={dealer} />
+      <div className="caret">
+        <FontAwesomeIcon icon={faAngleRight} />
+      </div>
     </div>
   )
 }
@@ -49,18 +52,20 @@ export class Dealers extends Component {
       search: '',
       location: { lat: 41.850033, lng: -87.6500523 },
       userLocation: null,
-      userRadius: 1400
+      userRadius: 2000,
+      selectedDealer: null,
     }
     this.searchDealers = this.searchDealers.bind(this);
     this.initMap = this.initMap.bind(this);
     this.filterDealers = this.filterDealers.bind(this);
     this.dealerLocations = this.dealerLocations.bind(this);
     this.updateRadius = this.updateRadius.bind(this);
+    this.selectDealer = this.selectDealer.bind(this);
   }
 
   componentDidMount() {
-    const restPrefix = 'https://nichesnowboards.com/wp-json'
-    // const restPrefix = 'http://localhost:8000/?rest_route='
+    // const restPrefix = 'https://nichesnowboards.com/wp-json'
+    const restPrefix = 'http://localhost:8000/?rest_route='
 
     // this.getUserLocation();
     axios.get(`${restPrefix}/nichesnowboards/v1/dealers/`)
@@ -143,6 +148,20 @@ export class Dealers extends Component {
      }
    }
 
+   selectDealer(id) {
+     this.setState({
+       selectedDealer: id
+     })
+   }
+
+   dealerClass(id) {
+     let className = 'dealer'
+     if (id === this.state.selectedDealer) {
+       className += ' selected'
+     }
+     return className
+   }
+
    dealerLocations(d) {
      let { userLocation, location } = this.state;
      if (!location) {
@@ -197,7 +216,7 @@ export class Dealers extends Component {
                 <h1>Find A Dealer</h1>
                 <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
                {filteredDealers.map(dealer =>
-                 <div key={dealer.id} className="dealer">
+                 <div key={dealer.id} className={this.dealerClass(dealer.id)} onClick={this.selectDealer.bind(this, dealer.id)}>
                   <DealerInfo dealer={dealer} />
                  </div>
                 )}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const RADIUS_OPT = [50,100,200,500]
 export class UserRadius extends Component {
@@ -31,7 +33,9 @@ export class UserRadius extends Component {
       )
     }
     return (
-      <button className="inline-link" onClick={this.showOptions}>{this.state.userRadius}</button>
+      <div className="select-toggle">
+        <button className="inline-link" onClick={this.showOptions}>{this.state.userRadius} <FontAwesomeIcon icon={faAngleDown} /></button>
+      </div>
     )
   }
 }
@@ -65,13 +69,13 @@ export class GeoLookup extends Component {
     this.getDistance(event);
   }
   useMyLocation() {
-    this.getDistance(this.state.userLocation);
     this.setState({ search: '' });
     this.showSearchForm();
+    this.getDistance(this.state.userLocation);
   }
   render() {
     const { userLocation, userRadius, showForm, search } = this.state;
-    if(userLocation && !showForm) {
+    if(!showForm) {
       let location = 'my location'
       if (search) location = search;
       return (

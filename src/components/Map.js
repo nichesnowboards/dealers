@@ -4,7 +4,7 @@ const ZOOM_RADIUS = {
   '100': 8,
   '200': 7,
   '500': 6,
-  '1400': 3,
+  '2000': 3,
 }
 export class Map extends Component {
   constructor(props) {

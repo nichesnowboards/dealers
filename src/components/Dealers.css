@@ -31,10 +31,15 @@
   }
 }
 .dealer {
-  padding: calc(var(--grid) * 3);
+  position: relative;
+  padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
   box-shadow: 0 0 4px rgba(0,0,0,.12);
   transition: box-shadow .35s ease;
   margin: var(--grid);
+  cursor: pointer;
+}
+.dealer.selected {
+  background-color: var(--list-bg-selected);
 }
 .dealer img,
 .dealer h2,
@@ -49,13 +54,23 @@
   width: 14px;
   justify-content: center;
 }
+.dealer .caret {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  right: var(--grid);
+  font-size: 24px;
+  color: var(--main-link-text);
+}
 .dealers .search-results .content {
   display: flex;
   flex: 1 0 auto;
   margin: 0;
   padding: var(--grid);
   box-sizing: content-box;
-  height: 47px;
+  height: 39px;
   justify-content: center;
   align-items: center;
 }
@@ -75,7 +90,7 @@
   box-shadow: 0 0 4px rgba(0,0,0,.12);
   display: flex;
   flex: 1 0 auto;
-  padding: calc(var(--grid) * 2) calc(var(--grid) * 3);
+  padding: var(--grid) calc(var(--grid) * 1.5);
 }
 .dealers .search-results {
   display: flex;
