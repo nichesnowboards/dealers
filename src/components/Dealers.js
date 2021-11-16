@@ -5,7 +5,7 @@ import GeoLookup from './GeoLookup'
 import Map from './Map'
 import {appendScript} from '../utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapPin, faPhone, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faMapPin, faPhone, faAngleRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 const MAPS_API_KEY = 'AIzaSyAItV-8HqS4WWMYd1txR8ppL06U_U2oZRU'
 
@@ -28,18 +28,38 @@ function DealerWebsite({dealer}) {
   )
 }
 
-function DealerInfo({dealer}) {
-  return (
-    <div>
-      <h2>{dealer.title}</h2>
-      <p><span className="icon"><FontAwesomeIcon icon={faMapPin} /></span> {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code}</p>
-      <DealerPhone dealer={dealer} />
-      <DealerWebsite dealer={dealer} />
-      <div className="caret">
-        <FontAwesomeIcon icon={faAngleRight} />
+export class DealerInfo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      dealer: props.dealer
+    }
+  }
+  mapLink({ street, city, state, postal_code }) {
+    const address = [street, city, state, postal_code].join(',')
+    return `http://maps.google.com/?q=${address}`
+  }
+  render() {
+    const dealer = this.state.dealer
+    return (
+      <div>
+        <h2>{dealer.title}</h2>
+        <p>
+          <span className="icon">
+            <FontAwesomeIcon icon={faMapPin} />
+          </span>
+          <a href={this.mapLink(dealer)} target="niche_ext">
+            {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code} <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>
+        </p>
+        <DealerPhone dealer={dealer} />
+        <DealerWebsite dealer={dealer} />
+        <div className="caret">
+          <FontAwesomeIcon icon={faAngleRight} />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export class Dealers extends Component {
@@ -214,7 +234,7 @@ export class Dealers extends Component {
            <div className="dealers">
               <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} />
               <div className="list">
-                <h1>Find A Dealer</h1>
+                <h1>Find a Dealer</h1>
                 <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
                {filteredDealers.map(dealer =>
                  <div key={dealer.id} className={this.dealerClass(dealer.id)} onClick={this.selectDealer.bind(this, dealer.id)}>
