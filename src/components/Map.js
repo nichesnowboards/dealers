@@ -182,6 +182,7 @@ export class Map extends Component {
   constructor(props) {
     super(props);
     this.google = props.google;
+    this.selectDealer = props.selectDealer;
     this.createMarker = this.createMarker.bind(this);
     this.updateZoom = this.updateZoom.bind(this);
     this.updateCenter = this.updateCenter.bind(this);
@@ -227,8 +228,8 @@ export class Map extends Component {
     const location = this.props.markers.find(m => Number(m.id) === Number(this.state.selected))
     this.updateCenter({ lat: Number(location.lat), lng: Number(location.lng) })
   }
-  createMarker({lat,lng}) {
-    return new this.google.maps.Marker({
+  createMarker({lat,lng,id}, i) {
+    const marker = new this.google.maps.Marker({
       position: {
         lat: Number(lat),
         lng: Number(lng)
@@ -236,6 +237,8 @@ export class Map extends Component {
       icon: iconBase + 'map_pin.png',
       map: this.map,
     });
+    marker.addListener('click', this.selectDealer.bind(null, {id,i}))
+    return marker
   }
   render() {
     return (

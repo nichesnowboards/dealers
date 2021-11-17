@@ -81,6 +81,7 @@ export class Dealers extends Component {
     this.dealerLocations = this.dealerLocations.bind(this);
     this.updateRadius = this.updateRadius.bind(this);
     this.selectDealer = this.selectDealer.bind(this);
+    this.itemsRef = [];
   }
 
   componentDidMount() {
@@ -97,6 +98,12 @@ export class Dealers extends Component {
       .catch(err => console.log(err))
       window.initMap = this.initMap;
       appendScript(`https://maps.googleapis.com/maps/api/js?key=${MAPS_API_KEY}&callback=initMap&v=weekly`)
+  }
+
+  componentDidUpdate() {
+    if (this.state.filteredDealers.length) {
+      this.itemsRef.current = this.itemsRef.slice(0, this.state.filteredDealers.length);
+    }
   }
 
   initMap() {
@@ -148,11 +155,12 @@ export class Dealers extends Component {
      }
    }
 
-   selectDealer(id) {
+   selectDealer(dealer) {
      this.setState({
-       selectedDealer: id,
+       selectedDealer: dealer.id,
        userRadius: 10
      })
+     this.itemsRef[dealer.i].scrollIntoView()
    }
 
    dealerClass(id) {
@@ -212,12 +220,12 @@ export class Dealers extends Component {
       if (isLoaded) {
         return (
            <div className="dealers">
-              <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} />
+              <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} selectDealer={this.selectDealer} />
               <div className="list">
                 <h1>Find a Dealer</h1>
                 <GeoLookup search={search} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
-               {filteredDealers.map(dealer =>
-                 <div key={dealer.id} className={this.dealerClass(dealer.id)} onClick={this.selectDealer.bind(this, dealer.id)}>
+               {filteredDealers.map((dealer, i) =>
+                 <div key={dealer.id} className={this.dealerClass(dealer.id)} ref={el => this.itemsRef[i] = el} onClick={this.selectDealer.bind(this, {id:dealer.id, i})}>
                   <DealerInfo dealer={dealer} />
                  </div>
                 )}
