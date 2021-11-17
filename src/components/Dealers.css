@@ -16,6 +16,9 @@
     flex-direction: column;
   }
 }
+.online-dealers p {
+  text-align: center;
+}
 .list {
   display: flex;
   flex: 0 1 50%;
@@ -29,6 +32,28 @@
 @media only screen and (max-width: 600px) {
   .list {
     flex-grow: 1;
+  }
+}
+.grid {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.grid .dealer {
+  display: flex;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+}
+.grid .dealer a {
+  display: flex;
+}
+.grid .dealer img {
+  width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .grid .dealer {
+    flex-basis: 45%;
   }
 }
 .dealer {
