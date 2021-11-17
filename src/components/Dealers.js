@@ -103,10 +103,6 @@ export class Dealers extends Component {
     this.google = window.google;
   }
 
-  geocoder() {}
-
-  map() {}
-
    searchDealers(event) {
      if (event && event.target) {
        const form = new FormData(event.target);
@@ -125,33 +121,17 @@ export class Dealers extends Component {
        })
        event.preventDefault();
      } else {
-       this.setState({search: ''});
+       this.setState({
+         search: '',
+         location: event,
+         userRadius: 50
+       }, this.filterDealers);
      }
    }
 
    updateRadius(userRadius) {
      this.setState({ userRadius }, this.filterDealers)
    }
-
-  getUserLocation() {
-    if('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.setState({
-          userLocation: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          },
-          isLoaded: true
-        }, this.filterDealers);
-      }, (error) => {
-        console.log(error)
-        this.setState({ isLoaded: true })
-      });
-    } else {
-      /* geolocation IS NOT available */
-      this.setState({ isLoaded: true })
-    }
-  }
 
    filterDealers(query) {
      const { dealers, userRadius } = this.state;
@@ -235,7 +215,7 @@ export class Dealers extends Component {
               <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} />
               <div className="list">
                 <h1>Find a Dealer</h1>
-                <GeoLookup search={search} userLocation={userLocation} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
+                <GeoLookup search={search} userRadius={userRadius} onUpdate={this.searchDealers} updateRadius={this.updateRadius} />
                {filteredDealers.map(dealer =>
                  <div key={dealer.id} className={this.dealerClass(dealer.id)} onClick={this.selectDealer.bind(this, dealer.id)}>
                   <DealerInfo dealer={dealer} />

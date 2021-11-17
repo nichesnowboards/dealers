@@ -50,13 +50,14 @@ export class GeoLookup extends Component {
     this.state = {
       userLocation: props.userLocation,
       userRadius: props.userRadius,
-      showForm: false,
+      showForm: true,
       search: props.search
     }
     this.showSearchForm = this.showSearchForm.bind(this);
     this.setValue = this.setValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.useMyLocation = this.useMyLocation.bind(this);
+    this.getUserLocation = this.getUserLocation.bind(this);
     this.getDistance = props.onUpdate;
     this.updateRadius = props.updateRadius;
   }
@@ -81,8 +82,24 @@ export class GeoLookup extends Component {
   useMyLocation() {
     this.setState({ search: '' });
     this.showSearchForm();
-    this.getDistance(this.state.userLocation);
+    if (!this.state.userLocation) {
+      this.getUserLocation()
+    }
   }
+
+ getUserLocation() {
+   if('geolocation' in navigator) {
+     navigator.geolocation.getCurrentPosition((position) => {
+       const userLocation = {
+         lat: position.coords.latitude,
+         lng: position.coords.longitude
+       }
+       this.setState({ userLocation }, this.getDistance.bind(null, userLocation));
+     }, (error) => {
+       console.log(error)
+     });
+   }
+ }
   render() {
     const { userRadius, showForm, search } = this.state;
     if(!showForm) {
