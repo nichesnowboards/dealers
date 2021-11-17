@@ -49,7 +49,7 @@ export class DealerInfo extends Component {
             <FontAwesomeIcon icon={faMapPin} />
           </span>
           <a href={this.mapLink(dealer)} target="niche_ext">
-            {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code} <FontAwesomeIcon icon={faExternalLinkAlt} />
+            {dealer.street}, {dealer.city}, {dealer.state} {dealer.postal_code} <span><FontAwesomeIcon icon={faExternalLinkAlt} /></span>
           </a>
         </p>
         <DealerPhone dealer={dealer} />

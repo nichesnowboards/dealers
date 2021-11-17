@@ -50,15 +50,14 @@
   align-items: center;
 }
 .dealer p a {
-  display: flex;
   align-items: center;
   color: var(--main-link-text);
   text-decoration: none;
   font-weight: 800;
+  vertical-align: middle;
 }
 .dealer a svg {
-  display: flex;
-  padding-left: var(--grid);
+  padding-left: calc(0.5 * var(--grid));
 }
 .dealer .icon {
   display: flex;
