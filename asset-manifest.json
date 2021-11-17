@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/dealers/static/css/main.01130ead.chunk.css",
-    "main.js": "/dealers/static/js/main.ace4aaee.chunk.js",
-    "main.js.map": "/dealers/static/js/main.ace4aaee.chunk.js.map",
+    "main.css": "/dealers/static/css/main.dc75ed47.chunk.css",
+    "main.js": "/dealers/static/js/main.fad5512e.chunk.js",
+    "main.js.map": "/dealers/static/js/main.fad5512e.chunk.js.map",
     "runtime-main.js": "/dealers/static/js/runtime-main.63c10593.js",
     "runtime-main.js.map": "/dealers/static/js/runtime-main.63c10593.js.map",
     "static/js/2.4f302e82.chunk.js": "/dealers/static/js/2.4f302e82.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.7c9bf335.chunk.js": "/dealers/static/js/3.7c9bf335.chunk.js",
     "static/js/3.7c9bf335.chunk.js.map": "/dealers/static/js/3.7c9bf335.chunk.js.map",
     "index.html": "/dealers/index.html",
-    "static/css/main.01130ead.chunk.css.map": "/dealers/static/css/main.01130ead.chunk.css.map",
+    "static/css/main.dc75ed47.chunk.css.map": "/dealers/static/css/main.dc75ed47.chunk.css.map",
     "static/js/2.4f302e82.chunk.js.LICENSE.txt": "/dealers/static/js/2.4f302e82.chunk.js.LICENSE.txt",
     "static/media/logo.9e90c648.png": "/dealers/static/media/logo.9e90c648.png",
     "static/media/index.css": "/dealers/static/media/woodmart-font.de7a5933.woff2"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.63c10593.js",
     "static/js/2.4f302e82.chunk.js",
-    "static/css/main.01130ead.chunk.css",
-    "static/js/main.ace4aaee.chunk.js"
+    "static/css/main.dc75ed47.chunk.css",
+    "static/js/main.fad5512e.chunk.js"
   ]
 }
