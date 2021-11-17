@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 export class OnlineDealers extends Component {
   state = {
@@ -68,14 +69,17 @@ export class OnlineDealers extends Component {
   render() {
     return (
       <div className="online-dealers">
-        <h1>Online Dealers</h1>
-        <p>Where can you buy a Niche snowboard?  Through your local shop, from one of websites below, or directly from our website.</p>
-        <div className="grid">
-        {this.state.dealers.map((dealer, i) =>
-          <div key={i} className="dealer">
-            <a href={dealer.url} target="niche_ext"><img src={`/dealers/dealer-logos/${dealer.logo}`} alt={dealer.title} /></a>
-          </div>
-         )}
+        <Link to="/dealers" className="button">Local Dealers</Link>
+        <div className="content">
+          <h1>Online Dealers</h1>
+          <p>Where can you buy a Niche snowboard?  Through your local shop, from one of websites below, or directly from our website.</p>
+          <div className="grid">
+          {this.state.dealers.map((dealer, i) =>
+            <div key={i} className="dealer">
+              <a href={dealer.url} target="niche_ext"><img src={`/dealers/dealer-logos/${dealer.logo}`} alt={dealer.title} /></a>
+            </div>
+           )}
+         </div>
         </div>
       </div>
     )

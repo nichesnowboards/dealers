@@ -1,4 +1,7 @@
 footer {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   background-color: var(--footer-bg-color);
   color: var(--footer-text-color);
 }
