@@ -177,7 +177,7 @@ const mapStyle = [
         ]
     }
 ]
-const iconBase = '/dealers/';
+const iconBase = '/';
 export class Map extends Component {
   constructor(props) {
     super(props);
