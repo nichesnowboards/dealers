@@ -113,7 +113,7 @@ export class OnlineDealers extends Component {
           <div className="grid">
           {this.state.dealers.map((dealer, i) =>
             <div key={i} className="dealer">
-              <a href={dealer.url} target="niche_ext"><img src={`/dealers/dealer-logos/${dealer.logo}`} alt={dealer.title} /></a>
+              <a href={dealer.url} target="niche_ext"><img src={`/dealer-logos/${dealer.logo}`} alt={dealer.title} /></a>
             </div>
            )}
          </div>
