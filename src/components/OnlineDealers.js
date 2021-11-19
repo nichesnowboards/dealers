@@ -10,6 +10,10 @@ export class OnlineDealers extends Component {
         logo: 'Backcountry-150x94.jpg'
       },
       {
+        title: 'Curated',
+        url: 'https://www.curated.com/'
+      },
+      {
         title: 'REI',
         url: 'https://www.rei.com/',
         logo: 'REI-150x94.jpg'
@@ -17,7 +21,7 @@ export class OnlineDealers extends Component {
       {
         title: 'EVO',
         url: 'https://www.evo.com/',
-        logo: 'EVO-150x94.jpg'
+        logo: 'Evo-150x94.jpg'
       },
       {
         title: 'Next Adventure',
@@ -45,11 +49,6 @@ export class OnlineDealers extends Component {
         logo: 'Nomads-150x94.jpg'
       },
       {
-        title: 'Moosejaw',
-        url: 'https://www.moosejaw.com/',
-        logo: 'Moosejaw-150x94.jpg'
-      },
-      {
         title: 'Milosport',
         url: 'https://www.milosport.com/',
         logo: 'Milosport-150x94.jpg'
@@ -60,9 +59,8 @@ export class OnlineDealers extends Component {
         logo: 'BakerStreet-150x94.jpg'
       },
       {
-        title: 'Blauer Board Shop',
-        url: 'https://www.blauerboardshop.com/',
-        logo: 'Blauers-150x94.png'
+        title: 'Zumiez',
+        url: 'https://www.zumiez.com'
       }
     ]
   }
