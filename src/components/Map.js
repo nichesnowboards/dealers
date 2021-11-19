@@ -187,6 +187,7 @@ export class Map extends Component {
     this.updateZoom = this.updateZoom.bind(this);
     this.updateCenter = this.updateCenter.bind(this);
     this.showLocation = this.showLocation.bind(this);
+    this.selectMarker = this.selectMarker.bind(this);
     this.state = {
       location: props.location,
       markers: props.markers,
@@ -227,6 +228,7 @@ export class Map extends Component {
   showLocation() {
     const location = this.props.markers.find(m => Number(m.id) === Number(this.state.selected))
     this.updateCenter({ lat: Number(location.lat), lng: Number(location.lng) })
+    this.selectMarker(this.state.selected)
   }
   createMarker({lat,lng,id}, i) {
     const marker = new this.google.maps.Marker({
@@ -236,9 +238,19 @@ export class Map extends Component {
       },
       icon: iconBase + 'map_pin.png',
       map: this.map,
+      id
     });
     marker.addListener('click', this.selectDealer.bind(null, {id,i}))
     return marker
+  }
+  selectMarker(id) {
+    this.state.markers.forEach(m => {
+      if (Number(m.id) === Number(id)) {
+        m.setIcon(iconBase + 'map_pin_selected.png')
+      } else {
+        m.setIcon(iconBase + 'map_pin.png')
+      }
+    })
   }
   render() {
     return (

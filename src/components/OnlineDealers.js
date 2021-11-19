@@ -5,18 +5,38 @@ export class OnlineDealers extends Component {
   state = {
     dealers: [
       {
-        title: 'Backcountry',
-        url: 'https://www.backcountry.com/',
-        logo: 'Backcountry-150x94.jpg'
+        title: 'Alpine Sports',
+        url: 'https://alpinesportsrental.com/',
+        rental: true
+      },
+      {
+        title: 'Baker Street',
+        url: 'https://bakerstsnow.com',
+        logo: 'BakerStreet-150x94.jpg'
+      },
+      {
+        title: 'Big Bear Boards',
+        url: 'https://www.bbboards.com'
+      },
+      {
+        title: 'Deckadence Board Shoppe',
+        url: 'https://deckadenceskateboards.com'
       },
       {
         title: 'Curated',
         url: 'https://www.curated.com/'
       },
       {
-        title: 'REI',
-        url: 'https://www.rei.com/',
-        logo: 'REI-150x94.jpg'
+        title: 'Eco Lounge',
+        url: 'https://www.eco-lounge.com'
+      },
+      {
+        title: 'Gear West',
+        url: 'https://www.gearwest.com'
+      },
+      {
+        title: 'Georg\'s Ski Shop',
+        url: 'https://www.georgsskishop.com'
       },
       {
         title: 'EVO',
@@ -24,9 +44,44 @@ export class OnlineDealers extends Component {
         logo: 'Evo-150x94.jpg'
       },
       {
+        title: 'Idaho Water Sports',
+        url: 'https://www.idahowatersports.com'
+      },
+      {
+        title: 'Mission Cycles',
+        url: 'https://missioncycles.net'
+      },
+      {
+        title: 'Motion Boardshop',
+        url: 'https://www.motionboardshop.com'
+      },
+      {
         title: 'Next Adventure',
         url: 'https://www.nextadventure.net/',
         logo: 'NextAdventure-150x94.jpg'
+      },
+      {
+        title: 'Nomads',
+        url: 'https://shopnomads.com/',
+        logo: 'Nomads-150x94.jpg'
+      },
+      {
+        title: 'Ranch Camp',
+        url: 'https://www.ranchcampvt.com'
+      },
+      {
+        title: 'REI',
+        url: 'https://www.rei.com/',
+        logo: 'REI-150x94.jpg'
+      },
+      {
+        title: 'Sanction',
+        url: 'https://sanctionsnow.com/',
+        logo: 'Sanction-150x94.jpg'
+      },
+      {
+        title: 'Shred',
+        url: 'https://shredsportsoutlet.com'
       },
       {
         title: 'The Source',
@@ -39,24 +94,8 @@ export class OnlineDealers extends Component {
         logo: 'TheBoardroom-150x94.jpg'
       },
       {
-        title: 'Sanction',
-        url: 'https://sanctionsnow.com/',
-        logo: 'Sanction-150x94.jpg'
-      },
-      {
-        title: 'Nomads',
-        url: 'https://shopnomads.com/',
-        logo: 'Nomads-150x94.jpg'
-      },
-      {
-        title: 'Milosport',
-        url: 'https://www.milosport.com/',
-        logo: 'Milosport-150x94.jpg'
-      },
-      {
-        title: 'Baker Street',
-        url: 'https://bakerstsnow.com',
-        logo: 'BakerStreet-150x94.jpg'
+        title: 'Yeagers Sporting Goods',
+        url: 'http://www.yeagerssportinggoods.com'
       },
       {
         title: 'Zumiez',

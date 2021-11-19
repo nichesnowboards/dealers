@@ -23,7 +23,7 @@ ReactDOM.render(
           <Route path="/posts" element={<Posts />} />
           <Route path="/dealers" element={<Dealers />} />
           <Route path="/online-dealers" element={<OnlineDealers />} />
-          <Route path="/" element={<Posts />} />
+          <Route path="/" element={<Dealers />} />
         </Routes>
       </div>
       <Footer />
