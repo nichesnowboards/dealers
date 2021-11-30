@@ -221,9 +221,6 @@ export class Dealers extends Component {
 		if(isLoaded) {
 			return (
         <div className="dealers">
-          <div className="header">
-            <Link to="/online-dealers" className="button">Online Dealers</Link>
-          </div>
           <div className="content">
             <Map google={this.google} location={location || userLocation} markers={filteredDealers} userRadius={userRadius} selected={this.state.selectedDealer} selectDealer={this.selectDealer} />
             <div className="list">

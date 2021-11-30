@@ -106,7 +106,6 @@ export class OnlineDealers extends Component {
   render() {
     return (
       <div className="online-dealers">
-        <Link to="/dealers" className="button">Local Dealers</Link>
         <div className="content">
           <h1>Online Dealers</h1>
           <p>Where can you buy a Niche snowboard?  Through your local shop, from one of websites below, or directly from our website.</p>
