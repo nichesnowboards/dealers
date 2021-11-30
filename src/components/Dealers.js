@@ -6,7 +6,6 @@ import Map from './Map'
 import { appendScript } from '../utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faPhone, faAngleRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
 
 const MAPS_API_KEY = 'AIzaSyAItV-8HqS4WWMYd1txR8ppL06U_U2oZRU'
 
