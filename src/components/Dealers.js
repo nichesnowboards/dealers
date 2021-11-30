@@ -109,6 +109,7 @@ export class Dealers extends Component {
 
 	initMap() {
 		this.google = window.google;
+		this.gtag = window.gtag;
 	}
 
 	searchDealers(event) {
@@ -127,6 +128,7 @@ export class Dealers extends Component {
 				})
 				this.setState(geo[0], this.filterDealers)
 			})
+			this.gtag("event", "search", form.get('search'))
 			event.preventDefault();
 		} else {
 			this.setState({
