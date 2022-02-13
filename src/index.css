@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Bookman Old Style";
-  src: url("./fonts/woodmart-font.woff2") format("woff2"),
-       url("./fonts/woodmart-font.woff") format("woff"),
-     url("./fonts/woodmart-font.ttf") format("truetype");
+  src: url("./assets/fonts/woodmart-font.woff2") format("woff2"),
+       url("./assets/fonts/woodmart-font.woff") format("woff"),
+     url("./assets/fonts/woodmart-font.ttf") format("truetype");
 }
 
 :root {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Dealers.css'
-import GeoLookup from './GeoLookup'
-import Map from './Map'
-import { appendScript } from '../utils.js'
+import GeoLookup from '@libs/GeoLookup'
+import Map from '@components/Map'
+import { appendScript } from '@libs/utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faPhone, faAngleRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 

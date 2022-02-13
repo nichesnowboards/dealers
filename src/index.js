@@ -7,11 +7,14 @@ import {
 import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Posts from './components/Posts';
-import Dealers from './components/Dealers';
-import OnlineDealers from './components/OnlineDealers';
+// Layout
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+// Pages
+import AboutNiche from '@pages/AboutNiche';
+import Blog from '@pages/Blog';
+import Dealers from '@pages/Dealers';
+import OnlineDealers from '@pages/OnlineDealers';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -20,7 +23,8 @@ ReactDOM.render(
       <Header />
       <div className="app">
         <Routes>
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/about" element={<AboutNiche />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/dealers" element={<Dealers />} />
           <Route path="/online-dealers" element={<OnlineDealers />} />
           <Route path="/" element={<Dealers />} />
