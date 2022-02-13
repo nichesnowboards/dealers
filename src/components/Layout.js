@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import logo from '../logo.png';
+import logo from '../logo.png'
 import './Header.css'
 import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faVimeoV, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
 
 /*
   Header
 */
 MenuOverlay.propTypes = {
   showMenu: PropTypes.bool,
-  toggleMenu: PropTypes.bool,
+  toggleMenu: PropTypes.any,
 }
 SubMenu.propTypes = {
-  menu: PropTypes.object
+  menu: PropTypes.array
 }
 Menu.propTypes = {
   showMenu: PropTypes.bool,
-  menu: PropTypes.object
+  menu: PropTypes.array
 }
 function MenuOverlay({ showMenu, toggleMenu }) {
   if (showMenu) {
@@ -141,18 +142,26 @@ export class Header extends Component {
   Page
 */
 
+const StyledPage = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 export class Page extends Component {
   static propTypes = {
     children: PropTypes.array
   }
   render() {
     return (
-      <div className="page">
+      <StyledPage>
         {this.props.children}
-      </div>
+      </StyledPage>
     )
   }
 }
+
+/*
+  Footer
+*/
 
 export class Footer extends Component {
   render() {

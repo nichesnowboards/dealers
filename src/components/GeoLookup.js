@@ -7,7 +7,7 @@ const RADIUS_OPT = [10,50,100,2000]
 export class UserRadius extends Component {
   static propTypes = {
     userRadius: PropTypes.string,
-    updateRadius: PropTypes.function,
+    updateRadius: PropTypes.any,
   }
   constructor(props) {
     super(props);
@@ -54,8 +54,8 @@ export class GeoLookup extends Component {
     userRadius: PropTypes.string,
     userLocation: PropTypes.string,
     search: PropTypes.string,
-    onUpdate: PropTypes.function,
-    updateRadius: PropTypes.function,
+    onUpdate: PropTypes.any,
+    updateRadius: PropTypes.any,
   }
   constructor(props) {
     super(props);

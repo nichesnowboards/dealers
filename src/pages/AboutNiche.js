@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Page } from '@components/Layout'
 import { PageTitle } from '@components/Typography'
-import Hero, { HeroTitle, HeroContent } from '@components/Hero'
+import Hero from '@components/Hero'
 import { Row, Box } from '@components/Flex'
 
 export class AboutNiche extends Component {
@@ -18,11 +18,8 @@ export class AboutNiche extends Component {
       return (
         <Page>
           <PageTitle>About</PageTitle>
-          <Hero>
-            <HeroTitle>The world&apos;s only zero-waste, environmentally conscious snowboards, 11 years and counting.</HeroTitle>
-            <HeroContent>
+          <Hero text={"The world's only zero-waste, environmentally conscious snowboards, 11 years and counting."}>
               <p>Niche is, above all else, dedicated to providing the global snowboard community with a quality product whose environmental impact is lessened by thoughtful design, conscious material selection and the desire to craft quality snowboards that are as beautiful to look at as they are to ride. If any of this sounds good to you, you&apos;re in the right place. Here is our story.</p>
-            </HeroContent>
           </Hero>
           <Row>
             <Box>
