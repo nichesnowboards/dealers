@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+
 const ZOOM_RADIUS = {
   '10': 15,
   '50': 9,
@@ -179,6 +181,14 @@ const mapStyle = [
 ]
 const iconBase = '/';
 export class Map extends Component {
+  static propTypes = {
+    google: PropTypes.string.isRequired,
+    selectDealer: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    markers: PropTypes.string.isRequired,
+    userRadius: PropTypes.string.isRequired,
+    selected: PropTypes.string.isRequired
+  }
   constructor(props) {
     super(props);
     this.google = props.google;

@@ -1,11 +1,27 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import logo from '../logo.png';
 import './Header.css'
+import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faVimeoV, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
+/*
+  Header
+*/
+MenuOverlay.propTypes = {
+  showMenu: PropTypes.bool,
+  toggleMenu: PropTypes.bool,
+}
+SubMenu.propTypes = {
+  menu: PropTypes.object
+}
+Menu.propTypes = {
+  showMenu: PropTypes.bool,
+  menu: PropTypes.object
+}
 function MenuOverlay({ showMenu, toggleMenu }) {
   if (showMenu) {
     return (
@@ -19,10 +35,10 @@ function SubMenu({ menu }) {
   if (menu && menu.length) {
     return (
       <div className="sub-menu">
-        {menu.map(({title,url,id}) =>
-        <div key={id}>
-          <a href={url}>{title}</a>
-        </div>
+        {menu.map(({ title, url, id }) =>
+          <div key={id}>
+            <a href={url}>{title}</a>
+          </div>
         )}
       </div>
     )
@@ -34,7 +50,7 @@ function Menu({ showMenu, menu }) {
   if (showMenu) {
     return (
       <nav>
-        {menu.map(({title,url,id,children}) =>
+        {menu.map(({ title, url, id, children }) =>
           <div key={id}>
             <a href={url}>{title}</a>
             <SubMenu menu={children} />
@@ -54,7 +70,7 @@ export class Header extends Component {
     showMenu: false,
     menu: null,
   }
-  componentDidMount () {
+  componentDidMount() {
     const restPrefix = 'https://nichesnowboards.com/wp-json'
     // const restPrefix = 'http://localhost:8000/?rest_route='
     axios.get(`${restPrefix}/nichesnowboards/v1/menu/`)
@@ -65,12 +81,12 @@ export class Header extends Component {
       })
       .catch(err => console.log(err))
     axios.get(`${restPrefix}/`)
-        .then(res => this.setState({
-            name: res.data.name,
-            description: res.data.description,
-            isLoaded: true
-        }))
-        .catch(err => console.log(err))
+      .then(res => this.setState({
+        name: res.data.name,
+        description: res.data.description,
+        isLoaded: true
+      }))
+      .catch(err => console.log(err))
     this.toggleMenu = this.toggleMenu.bind(this)
   }
   buildMenu(menu, item) {
@@ -121,4 +137,35 @@ export class Header extends Component {
   }
 }
 
-export default Header
+/*
+  Page
+*/
+
+export class Page extends Component {
+  static propTypes = {
+    children: PropTypes.array
+  }
+  render() {
+    return (
+      <div className="page">
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
+export class Footer extends Component {
+  render() {
+    return (
+      <footer>
+        <div className="links">
+          <a href="https://nichesnowboards.com/warranty-returns/">Warranty & Returns</a>
+          <a href="https://nichesnowboards.com/privacy-policy/">Privacy Policy</a>
+        </div>
+        <div className="copyright">
+          <p>&copy; Niche Snowboards {(new Date()).getFullYear()}</p>
+        </div>
+      </footer>
+    )
+  }
+}

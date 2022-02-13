@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Layout';
 import Posts from './components/Posts';
 
 function App() {

@@ -8,8 +8,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
 // Layout
-import Header from '@components/Header';
-import Footer from '@components/Footer';
+import { Header, Footer } from '@components/Layout';
 // Pages
 import AboutNiche from '@pages/AboutNiche';
 import Blog from '@pages/Blog';

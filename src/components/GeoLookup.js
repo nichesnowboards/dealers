@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const RADIUS_OPT = [10,50,100,2000]
 export class UserRadius extends Component {
+  static propTypes = {
+    userRadius: PropTypes.string,
+    updateRadius: PropTypes.function,
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -45,6 +50,13 @@ export class UserRadius extends Component {
   }
 }
 export class GeoLookup extends Component {
+  static propTypes = {
+    userRadius: PropTypes.string,
+    userLocation: PropTypes.string,
+    search: PropTypes.string,
+    onUpdate: PropTypes.function,
+    updateRadius: PropTypes.function,
+  }
   constructor(props) {
     super(props);
     this.state = {

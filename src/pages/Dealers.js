@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Dealers.css'
-import GeoLookup from '@libs/GeoLookup'
+import GeoLookup from '@components/GeoLookup'
 import Map from '@components/Map'
 import { appendScript } from '@libs/utils.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faPhone, faAngleRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import PropTypes from 'prop-types';
 
 const MAPS_API_KEY = 'AIzaSyAItV-8HqS4WWMYd1txR8ppL06U_U2oZRU'
 
+DealerPhone.propTypes = {
+  dealer: PropTypes.string.isRequired
+}
+DealerWebsite.propTypes = {
+  dealer: PropTypes.string.isRequired
+}
 function DealerPhone({ dealer }) {
 	if(!dealer.phone) {
 		return ''
@@ -17,7 +24,6 @@ function DealerPhone({ dealer }) {
 		<p><span className="icon"><FontAwesomeIcon icon={faPhone} /></span> <a href={'tel:' + dealer.phone} className="inline-link">{dealer.phone}</a></p>
 	)
 }
-
 function DealerWebsite({ dealer }) {
 	if(!dealer.website) {
 		return ''
@@ -30,6 +36,9 @@ function DealerWebsite({ dealer }) {
 }
 
 export class DealerInfo extends Component {
+  propTypes = {
+    dealer: PropTypes.string.isRequired
+  }
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -84,6 +93,10 @@ export class Dealers extends Component {
 		this.selectDealer = this.selectDealer.bind(this);
 		this.itemsRef = [];
 	}
+
+  propTypes = {
+    dealer: PropTypes.string.isRequired
+  }
 
 	componentDidMount() {
 		const restPrefix = 'https://nichesnowboards.com/wp-json'
